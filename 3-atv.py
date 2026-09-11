@@ -1,9 +1,13 @@
 import os
 os.system('cls')
 
-# ENTRADA.
-numero = int(input('Digite um número: '))
+a = int(input('Digite o primeiro número: '))
+b = int(input('Digite o segundo número: '))
 
-# PROCESSAMENTO.
-if numero >= 10 and numero <= 20:
-    print('O número escolhido está entre 10 e 20')
+match a == b:
+    case True:
+        c = a + b
+    case False:
+        c = a * b
+
+print('C =',c)
