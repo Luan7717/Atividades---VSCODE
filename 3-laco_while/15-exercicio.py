@@ -1,4 +1,5 @@
 import os
+import time
 os.system('cls')
 
 total_familias = 0
@@ -8,15 +9,20 @@ maior_salario = 0
 menor_salario = 0
 
 while True:
-    print("\n===== MENU =====")
+    print("\n   ===== MENU =====")
     print("1 - Adicionar família")
     print("2 - Sair e exibir resultados")
 
     opcao = int(input("Digite uma opção: "))
+    os.system('cls')
 
     if opcao == 1:
+        print('Opção escolhida: Adicionar família.\nDigite os dados da família\n')
         salario = float(input("Digite o salário da família: R$ "))
         filhos = int(input("Digite o número de filhos: "))
+        print('Família Registrada com sucesso!')
+        time.sleep(3)
+        os.system('cls')
 
         # Primeira família
         if total_familias == 0:
@@ -40,7 +46,7 @@ while True:
             media_salario = soma_salarios / total_familias
             media_filhos = soma_filhos / total_familias
 
-            print("a) Total de famílias:", total_familias)
+            print(f"a) Total de famílias: {total_familias}")
             print(f"b) Média do salário: R$ {media_salario:.2f}")
             print(f"c) Média do número de filhos: {media_filhos:.2f}")
             print(f"d) Maior salário: R$ {maior_salario:.2f}")
@@ -52,3 +58,5 @@ while True:
 
     else:
         print("Opção inválida! Digite 1 ou 2.")
+        time.sleep(3)
+        os.system('cls')

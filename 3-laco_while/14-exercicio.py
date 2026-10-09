@@ -20,7 +20,6 @@ while True:
             sexo = input('Digite o sexo (M/F): ').upper()
             salario = float(input('Digite o salário: R$'))
             os.system('cls')
-
             soma_salarios += salario
             quantidade += 1
             if idade > maior_idade:
@@ -42,7 +41,10 @@ while True:
                 input('Clique qualquer tecla para continuar...')
                 os.system('cls')
             else:
-                print('Nenhuma pessoa foi cadastrada.')
+                os.system('cls')
+                print('\n===== RESULTADOS =====')
+                print('\nNenhuma pessoa foi cadastrada.')
+                break
         case 3:
             print('Programa encerrado!')
             break
