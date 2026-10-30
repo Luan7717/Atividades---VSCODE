@@ -31,7 +31,7 @@ while True:
             print(f'Total: {len(lista_produtos)}')
         case 3:
             print('\n== ATUALIZAR PRODUTO ==')
-            nome = input('Qual produto deseja atualizar?')
+            nome = input('Qual produto deseja atualizar?: ')
             if nome in lista_produtos:
                 posicao = lista_produtos.index(nome)
                 novo = input('Novo nome: ')
@@ -41,7 +41,7 @@ while True:
                 print('Produto não encontrado.')
         case 4:
             print('\n== REMOVER PRODUTO ==')
-            nome = input('Qual produto deseja remover?')
+            nome = input('Qual produto deseja remover?: ')
             if nome in lista_produtos:
                 lista_produtos.remove(nome)
                 print('Produto excluido com sucesso!')
@@ -49,7 +49,7 @@ while True:
                 print('Produto não encontrado.')
         case 5:
             print('== ENCONTRAR PRODUTO ==')
-            nome = input('Qual produto deseja buscar?')
+            nome = input('Qual produto deseja buscar?: ')
             if nome in lista_produtos:
                 print('Produto encontrado!')
             else:
