@@ -11,25 +11,30 @@ while True:
 3 - Atualizar produto
 4 - Remover produto
 5 - Buscar produto
-6 - Sair''')
+0 - Sair''')
 
     opcao = int(input('Escolha uma opção: '))
 
     match opcao:
         case 1:
+            # CREATE (INSERIR)
             print('\n== CADASTRAR PRODUTO ==')
-            nome_produto = input('Digite o nome do novo produto: ')
-            if nome_produto in lista_produtos:
+            nome_produto = input('Digite o nome do novo produto: ').strip().upper
+            if nome_produto == '':
+                print('O nome do produto deve ser inserido!')
+            elif nome_produto in lista_produtos:
                 print('Produto ja cadastrado.')
             else:
                 lista_produtos.append(nome_produto)
                 print('Produto cadastrado com sucesso!')
         case 2:
+            # READ (LER / BUSCAR DADOS)
             print('\n== PRODUTOS NO ESTOQUE ==')
             for produto in lista_produtos:
                 print(f'- {produto}')
             print(f'Total: {len(lista_produtos)}')
         case 3:
+            # UPDATE (ATUALIZAR)
             print('\n== ATUALIZAR PRODUTO ==')
             nome = input('Qual produto deseja atualizar?: ')
             if nome in lista_produtos:
@@ -40,6 +45,7 @@ while True:
             else:
                 print('Produto não encontrado.')
         case 4:
+            # DELETE (REMOVER DADOS)
             print('\n== REMOVER PRODUTO ==')
             nome = input('Qual produto deseja remover?: ')
             if nome in lista_produtos:
@@ -48,6 +54,7 @@ while True:
             else:
                 print('Produto não encontrado.')
         case 5:
+            # READ (LER / CONSULTAR / BUSCAR / FILTRAR)
             print('== ENCONTRAR PRODUTO ==')
             nome = input('Qual produto deseja buscar?: ')
             if nome in lista_produtos:
@@ -59,4 +66,4 @@ while True:
             break
         case _:
             print('Opção inválida! \nTente novamente...')
-    input('Pressione uma tecla para continuar...')
+    input('\nPressione uma tecla para continuar...')
