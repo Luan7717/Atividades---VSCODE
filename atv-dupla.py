@@ -148,3 +148,7 @@ while True:
                 print(f'Quantidade de pratos: {contador}')
                 print(f'Valor total a pagar: R${valor_total:.2f}')
                 input('Toque em uma tecla para continuar...')
+        case _:
+            print('\n=== FIM DO PROGRAMA ===')
+            print('Programa finalizado.')
+            print('')
