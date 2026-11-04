@@ -19,8 +19,8 @@ while True:
     match opcao:
         case 1:
             contador += 1
-            paciente_nome = input('\nDigite seu nome: ').strip().lower()
-            paciente_sobrenome = input('Digite seu sobrenome: ').strip().lower()
+            paciente_nome = input('\nDigite o nome do paciente: ').strip().lower()
+            paciente_sobrenome = input('Digite o sobrenome do paciente: ').strip().lower()
             if paciente_nome == '' or paciente_sobrenome == '':
                 print('Nome ou sobrenome não pode ser vazio!')
                 input('Clique em uma tecla para continuar')
@@ -42,21 +42,20 @@ while True:
                 input('Clique em uma tecla para continuar')
         case 3:
             print('\n=== ATUALIZAR PACIENTE ===')
-            atualizar = input('Digite o nome do paciente que deseja atualizar: ').strip().lower()
-            posicao = -1
-            for i, (nome, sobrenome) in enumerate (lista_pacientes):
-                nome_completo = f'{nome} {sobrenome}'.lower()
-                if nome_completo == atualizar:
-                    posicao = i
-                    break
-            if posicao != -1:
-                novo_nome = input('Novo nome: ')
-                novo_sobrenome = input('Novo sobrenome: ')
-                lista_pacientes[posicao] = (novo_nome, novo_sobrenome)
-                print('Dados do paciente atualizados!')
+            if len(lista_pacientes) == 0:
+                print('Não há pacientes cadastrados.')
             else:
-                print('Paciente não encontrado!')
-            input('Clique em uma tecla para continuar')
+                for contador, (nome, sobrenome) in enumerate (lista_pacientes, start=1):
+                    print(f'{contador} - {nome} {sobrenome}')
+                numero = int(input('\nDigite o número do paciente que deseja atualizar: '))
+                if numero >= 1 and numero <= len(lista_pacientes):
+                    novo_nome = input('Novo nome: ')
+                    novo_sobrenome = input('Novo sobrenome: ')
+                    lista_pacientes[numero - 1] = (novo_nome, novo_sobrenome)
+                    print('Dados do paciente atualizados!')
+                else:
+                    print('Paciente não encontrado!')
+                    input('Clique em uma tecla para continuar')
         case 4:
             print('\n=== REMOVER PACIENTE ===')
             nome_completo = input('Qual paciente deseja remover?: ')
@@ -69,3 +68,6 @@ while True:
             else:
                 print('Paciente não encontrado!')
                 input('Clique em uma tecla para continuar')
+        case 0:
+            print('Programa finalizado!')
+            break
