@@ -14,19 +14,19 @@ lista_fornecedores = []
 
 print('= Solicitando Dados - Fornecedores=')
 for i in range(QUANTIDADE_FORNECEDOR):
-    fonecedor = Fornecedor(
+    novo_fonecedor = Fornecedor(
         nome = input('Digite o nome: '),
         email = input('Digite o email: '),
         telefone = input('Digite o telefone: '),
         endereco = input('Digite o endereço: ')
     )
-    lista_fornecedores.append(fonecedor)
+    lista_fornecedores.append(novo_fonecedor)
     print(f'Fornecedor cadastrado com sucesso!')
     input('Toque "Enter" para continuar...')
     os.system('cls')
 
 arquivo = 'dados_fornecedores.csv'
 with open(arquivo, 'a') as arquivo_de_fornecedores:
-    for cliente in lista_fornecedores:
-        arquivo_de_fornecedores.write(f'{fonecedor.nome}, {fonecedor.email}, {fonecedor.telefone}, {fonecedor.endereco}\n')
+    for fornecedor in lista_fornecedores:
+        arquivo_de_fornecedores.write(f'{fornecedor.nome}, {fornecedor.email}, {fornecedor.telefone}, {fornecedor.endereco}\n')
     print('Fornecedor salvo com sucesso!')
